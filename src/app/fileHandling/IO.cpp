@@ -9,6 +9,11 @@ IO::IO(const std::string &file_path) {
   }
 }
 
+/*move transfers ownership by copying the resource pointer from the original
+object to the new object, and then nullifying the original pointer which is
+handled within the move constructor or move assignment operator....std::move(),
+the object is cast to an rvalue reference (T&&), which is a temporary object*/
+
 std::fstream IO::getFileStream() { return std::move(file_stream); }
 
 IO::~IO() {
